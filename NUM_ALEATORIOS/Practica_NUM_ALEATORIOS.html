@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Práctica Numeros_aleatorios Ángel Huete Abad</title>
+  <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+   <embed src="sonidos/videoplayback.mp3" autostart="true" loop="true" width="2" height="0" value="0.5"> 
+<embed/>
+   
+  
+    <style>
+        
+    body {
+            background: url(imagenes/fondopag.gif) repeat center; /*Establecemos nuestro fondo, en este caso un .gif*/
+                background-size: initial;
+        }
+
+
+/*------------------------CABECERA---------------------*/
+        #cabecera {
+            text-align: center;
+            margin-top: 2%;
+            border: hidden;
+            font-family: 'Audiowide', cursive;
+            font-size: 15px;
+
+        }
+/*Información del juego*/
+        #informacion {
+
+            color: indianred;
+            text-align: center;
+            margin-top: 5%;
+            font-family: 'Audiowide', cursive;
+            font-size: 20px;
+
+        }
+
+/*------------------------MARGEN DERECHO---------------------*/
+
+        #solucion {
+            font-family: 'Audiowide', cursive;
+            color: white;
+            background-color: none;
+            font-size: 30px;
+            text-align: center;
+            border-width: 10px
+            padding: 10%;
+              border: solid;
+            
+
+
+        }
+        #block_solucion {
+
+            margin-top: -15%;
+            text-align: center;
+            display: inline-flex;
+            padding: 2%;
+          
+            margin-left: 45%
+        }
+         #fotografia {
+            margin-right: 20px;
+            border: round;
+            height: 100xp;
+             opacity: 0.8;
+            
+         
+        }
+
+        
+        #derecha {
+
+            float: right;
+            margin-left: 10%;
+
+
+        }
+/*----------------------------MARGEN IZQUIERDO----------------------------*/
+        #valores {
+
+
+            font-family: 'Audiowide', cursive;
+            color: white;
+            text-align: center;
+            padding: 5%;
+
+
+        }
+
+        #valmin {
+            font-family: 'Audiowide', cursive;
+            text-align: center;
+
+            border-radius: 30px;
+            font-size: 16px;
+
+        }
+
+
+        #valmax {
+            font-family: 'Audiowide', cursive;
+            border-radius: 30px;
+            text-align: center;
+            font-size: 16px;
+
+        }
+
+
+
+        .boton {
+            color: #ffffff;
+            background-color: #1883ba;
+            border-radius: 6px;
+            text-align: center;
+            padding: 5%;
+            display: inline-flex;
+            padding: 2%;
+            margin-left: 25%;
+        }
+        
+        #button{
+            font-family: 'Audiowide', cursive;
+            font-size: 15px;
+            transform: rotate(360deg);transform: rotate(360deg);
+        }
+    
+
+        #fails {
+/*CSS para los fallos*/
+            font-family: 'Audiowide', cursive;
+            color: red;
+            font-size: 15px;
+            text-align: center;
+            padding: 5%;
+
+        }
+
+        #izquierda {
+
+            float: left;
+            margin-left: 10%;
+         
+        }
+
+
+
+
+        
+
+
+       
+        
+        #{text-align: justify}
+
+        
+    
+    
+    
+    </style>
+      <script>
+       // recogera el aleatorio generado por la funcion 
+        //la función aleatorio se encarga de generar dentro del rango proporcionado en los input un numero aleatorio
+    function aleatorio(){
+       var min = Number(document.getElementById('valmin').value);//recoge el valor del input con id = "valmin"
+        console.log(min);
+        var max = Number(document.getElementById('valmax').value);//recoge el valor del input con id = "valmax"
+        console.log(max);
+        var numero = parseInt(Math.floor(Math.random() * (max - min+1) + min));//OBTIENE el numero aleatorio a partir de los dos anteriormente introducidos
+        imagen = document.getElementById("Imagen");
+            audio = document.getElementById("Audio");
+
+            if (min > max) {
+                //si el minimo es mayor que el maximo
+                document.getElementById("err1").style.display = 'none';
+                document.getElementById("ex1").style.display = 'none';
+                document.getElementById("err2").style.display = 'block';
+                document.getElementById("ex2").style.display = 'block';
+            } else if (isNaN(min) || isNaN(max)) {
+                //si alguno de los dos input no son numeros
+                document.getElementById("err2").style.display = 'none';
+                document.getElementById("ex2").style.display = 'none';
+                document.getElementById("err1").style.display = 'block';
+                document.getElementById("ex1").style.display = 'block';
+            } else {
+                
+                document.getElementById("err1").style.display = 'none';
+                document.getElementById("ex1").style.display = 'none';
+                document.getElementById("err2").style.display = 'none';
+                document.getElementById("ex2").style.display = 'none';
+
+                document.getElementById("solucion").innerHTML = numero; // recogera el aleatorio generado por la funcion 
+
+         switch (numero) {
+//segun el numero mostrará su imagen y sonido correspondiente mediante el swicht
+                    case 0:
+                        imagen.src = "imagenes/0.png";
+                        imagen.alt = "Número cero";
+                        audio.innerHTML = '<audio src="sonidos/1.mp3" controls autoplay></audio>';
+                        break;
+                    case 1:
+                        imagen.src = "imagenes/uno.jpg";
+                        imagen.alt = "Número uno";
+                        audio.innerHTML = '<audio src="sonidos/2.mp3" controls autoplay></audio>';
+                        break;
+                    case 2:
+                        imagen.src = "imagenes/dos.jpg";
+                        imagen.alt = "Número dos";
+                        audio.innerHTML = '<audio src="sonidos/3.mp3" controls autoplay></audio>';
+                        break;
+                    case 3:
+                        imagen.src = "imagenes/tres.jpg";
+                        imagen.alt = "Número tres";
+                        audio.innerHTML = '<audio src="sonidos/4.mp3" controls autoplay></audio>';
+                        break;
+                    case 4:
+                        imagen.src = "imagenes/cuatro.jpg";
+                        imagen.alt = "Número cuatro";
+                        audio.innerHTML = '<audio src="sonidos/5.mp3" controls autoplay></audio>';
+                        break;
+                    case 5:
+                        imagen.src = "imagenes/cinco.jpg";
+                        imagen.alt = "Número cinco";
+                        audio.innerHTML = '<audio src="sonidos/6.mp3" controls autoplay></audio>';
+                        break;
+                    case 6:
+                        imagen.src = "imagenes/seis.jpg";
+                        imagen.alt = "Número seis";
+                        audio.innerHTML = '<audio src="sonidos/7.mp3" controls autoplay></audio>';
+                        break;
+                    case 7:
+                        imagen.src = "imagenes/siete.jpg";
+                        imagen.alt = "Número siete";
+                        audio.innerHTML = '<audio src="sonidos/8.mp3" controls autoplay></audio>';
+                        break;
+                    case 8:
+                        imagen.src = "imagenes/ocho.jpg";
+                        imagen.alt = "Número ocho";
+                        audio.innerHTML = '<audio src="sonidos/9.mp3" controls autoplay></audio>';
+                        break;
+                    case 9:
+                        imagen.src = "imagenes/nueve.jpg";
+                        imagen.alt = "Número nueve";
+                        audio.innerHTML = '<audio src="sonidos/10.mp3" controls autoplay></audio>';
+                        break;
+                    case 10:
+                        imagen.src = "imagenes/diez.jpg";
+                        imagen.alt = "Número diez";
+                        audio.innerHTML = '<audio src="sonidos/11.mp3" controls autoplay></audio>';
+                        break;
+                    default:
+                        imagen.src = "imagenes/sumo.gif";
+                        imagen.alt = "fallo número";
+                        audio.innerHTML = '<audio src="sonidos/aviso.mp3" controls autoplay></audio>';
+                }
+            }
+    }
+    
+    </script>
+</head>
+<body>
+    <div id="cabecera">
+    <h1>Generar Número Aleatorio</h1>
+    </div>
+    <div id="informacion">
+     <p>Seleccione valor mínimo y valor máximo entre 1 y 10</p>
+        <br><br/>
+    </div>
+   <div id="izquierda">
+        <div id="valores">
+            Mínimo:<input  type="number" id="valmin" /><br/>
+            Máximo:<input type="number" id="valmax" />
+        </div>
+       <div>
+        <button id="button" class="boton" onclick="aleatorio()">Genera aleatorio</button>
+    </div>
+      <br><br/>
+       <div id="fails">
+            <p id="err2" style="display:none;">ERROR</p>
+            <p id="ex2" style="display:none;"> A ver si aprendemos a contar...el numero mínimo es mayor que el máximo</p>
+            <p id="err1" style="display:none;">ERROR</p>
+            <p id="ex1" style="display:none;">Solo se permite números del rango [0-10]</p>
+        </div>
+
+       </div>
+ <div id="derecha">
+        <div id="block_solucion">
+            <p id="solucion">Resultado</p><br><br/>
+        </div>
+        <div id="fotografia"><img id="Imagen" src="imagenes/inicial.gif" alt="Números" />
+        </div>
+
+        <div id="Audio"></div>
+    </div>
+    
+    
+</body>
+</html>
